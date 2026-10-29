@@ -135,6 +135,12 @@ fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px
 @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
 .devmap{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
 .devmap img{display:block;width:100%;height:auto}
+.notice-change{margin:22px 22px 0;padding:14px 16px;border-radius:14px;background:var(--warn-soft);border:1.5px solid var(--warn);display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.notice-change .bang{width:24px;height:24px;border-radius:50%;background:var(--warn);color:var(--card);font-weight:700;display:grid;place-items:center;font-size:15px;line-height:1;margin-top:1px}
+.notice-change strong{display:block;color:var(--warn);font-size:16px;line-height:1.45}
+.notice-change p{margin:2px 0 0;font-size:14.5px;font-weight:500;color:var(--ink)}
+.notice-change a{display:inline-block;margin-top:6px;font-size:13.5px;font-weight:600;color:var(--warn);text-decoration:underline;text-underline-offset:3px}
+.chg{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:6px;background:var(--warn);color:var(--card);font-size:11.5px;font-weight:700;vertical-align:2px}
 .foot{margin:0;text-align:center;font-size:12px;color:var(--muted)}
 @media (prefers-reduced-motion: reduce){
   .town .w,.opt,.radio::after{transition:none}
@@ -173,12 +179,20 @@ fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px
     </div>
 
     <div class="view" id="view-invite" tabindex="-1" hidden>
+      <div class="notice-change" role="note">
+        <span class="bang" aria-hidden="true">!</span>
+        <div>
+          <strong>장소가 변경되었습니다.</strong>
+          <p>해당 장소 확인 후 참석 가능 여부를 다시 응답해 주세요!</p>
+          <a href="location-map.jpg" target="_blank" rel="noopener">변경된 장소 약도 보기</a>
+        </div>
+      </div>
       <section class="letter">
         <p class="to"><span class="unit" id="guestUnit"></span><b id="guestName"></b> 님께</p>
         <p class="msg">같은 단지에서 함께 살아갈 이웃분들과 처음 인사를 나누는 자리를 마련했습니다. 협의회가 그동안 해 온 일을 말씀드리고, 입주 전에 궁금하신 점도 간단하게 함께 나누려 합니다.</p>
         <dl class="facts">
           <div><dt>일시</dt><dd>2026년 11월 21일 토요일<span class="sub">오후 1시 30분 시작</span></dd></div>
-          <div><dt>장소</dt><dd>안양시 공익활동지원센터<span class="sub">안양역 지하상가 안</span></dd></div>
+          <div><dt>장소</dt><dd><span class="chg">변경</span>안양시 공익활동지원센터<span class="sub">안양역 지하상가 안</span></dd></div>
           <div><dt>인원</dt><dd>계약세대당 성인 최대 2인<span class="sub">동반 자녀는 별도</span></dd></div>
         </dl>
       </section>
@@ -198,6 +212,14 @@ fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px
     </div>
 
     <div class="view" id="view-guide" tabindex="-1" hidden>
+      <div class="notice-change" role="note">
+        <span class="bang" aria-hidden="true">!</span>
+        <div>
+          <strong>장소가 변경되었습니다.</strong>
+          <p>해당 장소 확인 후 참석 가능 여부를 다시 응답해 주세요!</p>
+          <a href="#wayTitle">아래 약도에서 위치 확인하기</a>
+        </div>
+      </div>
       <div class="confirm">
         <span class="lampdot" aria-hidden="true"></span>
         <div>
@@ -222,11 +244,11 @@ fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px
       <section class="block" aria-labelledby="wayTitle">
         <h2 id="wayTitle">찾아오시는 길</h2>
         <div class="place">
-          <span class="place-name" id="placeName">안양시 공익활동지원센터</span>
+          <span class="place-name"><span class="chg">변경</span><span id="placeName">안양시 공익활동지원센터</span></span>
           <span class="place-sub">안양역 지하상가 안</span>
         </div>
         <a class="devmap" href="location-map.jpg" target="_blank" rel="noopener">
-          <img src="location-map.jpg" alt="안양역 지하상가 약도와 안양시 공익활동지원센터 입구 사진" width="1252" height="751">
+          <img src="location-map.jpg" alt="안양역 지하상가 약도와 안양시 공익활동지원센터 입구 사진" width="1253" height="751">
         </a>
         <div class="maps">
           <a class="btn btn-ghost" id="kakaoMap" href="https://map.kakao.com/" target="_blank" rel="noopener">카카오맵</a>
